@@ -52,6 +52,17 @@ tailwind.config = {
         signature: ['"CalendaryHands"', 'cursive'],
       },
 
+      fontSize: {
+        'signature':      ['clamp(2.8rem, 6vw, 5rem)', { lineHeight: '1.1' }],
+        'hero':           ['clamp(2.5rem, 5vw, 4rem)',  { lineHeight: '1.15' }],
+        'signature-logo': ['2rem',                      { lineHeight: '1.2' }],
+      },
+
+      spacing: {
+        'hero-top': 'clamp(1rem, 4vw, 3rem)',
+        'section-gap': 'clamp(1.5rem, 3vw, 2rem)',
+      },
+
       borderRadius: {
         card: '1.25rem',
         pill: '9999px',
@@ -88,6 +99,15 @@ tailwind.config = {
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+    }
+
+    .blend-multiply {
+      mix-blend-mode: multiply;
+    }
+
+    body > * {
+      position: relative;
+      z-index: 1;
     }
 
     .text-gold-gradient-v {
