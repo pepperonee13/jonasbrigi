@@ -88,6 +88,10 @@ tailwind.config = {
 (function () {
   const style = document.createElement('style');
   style.textContent = `
+    html {
+      scroll-behavior: smooth;
+    }
+
     @font-face {
       font-family: 'CalendaryHands';
       src: url('fonts/CalendaryHands.ttf') format('truetype');
