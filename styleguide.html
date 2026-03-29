@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bringo — Styleguide</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            /* ── Design Tokens ── */
+
+            /* Olive greens */
+            olive: {
+              50:  '#f5f7f0',
+              100: '#e8edda',
+              200: '#d2dbb8',  /* ★ primary */
+              300: '#b5c48e',
+              400: '#97ac66',
+              500: '#7a9248',
+              600: '#607538',
+              700: '#4a5a2b',
+              800: '#364220',
+              900: '#252e16',
+            },
+
+            /* Bronze / copper — metallic accent */
+            gold: {
+              50:  '#fdf6f0',
+              100: '#f7e6d8',
+              200: '#edcaad',
+              300: '#d9a67c',  /* ★ accent — réz/bronz */
+              400: '#c4834f',
+              500: '#a8622f',  /* fémes bronz */
+              600: '#8b4e22',
+              700: '#6e3b18',
+              800: '#4f2a10',
+              900: '#321a09',
+            },
+
+            /* Pastel neutrals */
+            cream: {
+              50:  '#fefcf8',
+              100: '#fdf7ee',
+              200: '#f8ecda',
+              300: '#f0dbbf',  /* ★ háttér */
+              400: '#e5c89a',
+            },
+
+            /* Soft rose accent */
+            blush: {
+              100: '#fce8e8',
+              200: '#f7cdcd',
+              300: '#edaaaa',
+              400: '#df8080',
+            },
+          },
+
+          fontFamily: {
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+            body:    ['"DM Sans"', 'system-ui', 'sans-serif'],
+          },
+
+          borderRadius: {
+            card: '1.25rem',
+            pill: '9999px',
+          },
+
+          boxShadow: {
+            soft:  '0 4px 24px 0 rgba(96,117,56,0.08)',
+            card:  '0 8px 40px 0 rgba(96,117,56,0.12)',
+            gold:  '0 4px 20px 0 rgba(168,98,47,0.30)',
+          },
+
+          backgroundImage: {
+            /* Fémes arany gradiens: világos réz → mély bronz */
+            'gold-metal': 'linear-gradient(135deg, #e8c07a 0%, #c4834f 40%, #8b4e22 100%)',
+            /* Vízszintes változat szöveg-cliphez */
+            'gold-metal-h': 'linear-gradient(90deg, #e8c07a 0%, #c4834f 50%, #a8622f 100%)',
+            /* Gomb háttér */
+            'gold-btn': 'linear-gradient(135deg, #d9a67c 0%, #a8622f 100%)',
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    /* Fémes szöveg gradiens segédosztály */
+    .text-gold-gradient {
+      background: linear-gradient(90deg, #e8c07a 0%, #c4834f 50%, #8b4e22 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    /* Függőleges — pl. nagyobb display szövegnél */
+    .text-gold-gradient-v {
+      background: linear-gradient(160deg, #f0d090 0%, #c4834f 45%, #7e4a1e 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+</head>
+<body class="bg-cream-300 font-body text-olive-800 min-h-screen">
+
+  <!-- ── Header ── -->
+  <header class="bg-cream-300 border-b border-cream-400 px-8 py-5 flex items-center justify-between sticky top-0 z-50">
+    <div>
+      <span class="font-display text-xl font-semibold text-olive-700 tracking-wide">Bringo</span>
+      <span class="ml-2 text-xs text-gold-500 font-body font-medium uppercase tracking-widest">Styleguide</span>
+    </div>
+    <nav class="text-sm text-olive-600 space-x-6 hidden md:flex">
+      <a href="#colors" class="hover:text-gold-400 transition-colors">Színek</a>
+      <a href="#typography" class="hover:text-gold-400 transition-colors">Tipográfia</a>
+      <a href="#buttons" class="hover:text-gold-400 transition-colors">Gombok</a>
+      <a href="#cards" class="hover:text-gold-400 transition-colors">Kártyák</a>
+      <a href="#components" class="hover:text-gold-400 transition-colors">Komponensek</a>
+      <a href="#preview" class="hover:text-gold-400 transition-colors">Előnézet</a>
+    </nav>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-6 py-12 space-y-20">
+
+    <!-- ── Section: Colors ── -->
+    <section id="colors">
+      <h2 class="font-display text-3xl font-semibold text-olive-700 mb-8">Színpaletta</h2>
+
+      <!-- Olive -->
+      <div class="mb-8">
+        <h3 class="text-sm font-medium uppercase tracking-widest text-olive-600 mb-3">Olive Green — primary</h3>
+        <div class="flex flex-wrap gap-3">
+          <div class="flex flex-col items-center gap-1">
+            <div class="w-14 h-14 rounded-xl bg-olive-50 border border-cream-400"></div>
+            <span class="text-xs text-olive-600">50</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <div class="w-14 h-14 rounded-xl bg-olive-100 border border-cream-400"></div>
+            <span class="text-xs text-olive-600">100</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <div class="w-14 h-14 rounded-xl bg-olive-200 ring-2 ring-offset-2 ring-olive-400"></div>
+            <span class="text-xs text-olive-700 font-semibold">200 ★</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <div class="w-14 h-14 rounded-xl bg-olive-300"></div>
+            <span class="text-xs text-olive-600">300</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <div class="w-14 h-14 rounded-xl bg-olive-400"></div>
+            <span class="text-xs text-olive-600">400</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <div class="w-14 h-14 rounded-xl bg-olive-500"></div>
+            <span class="text-xs text-olive-600">500</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <div class="w-14 h-14 rounded-xl bg-olive-600"></div>
+            <span class="text-xs text-olive-600">600</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <div class="w-14 h-14 rounded-xl bg-olive-700"></div>
+            <span class="text-xs text-olive-600">700</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <div class="w-14 h-14 rounded-xl bg-olive-800"></div>
+            <span class="text-xs text-olive-600">800</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <div class="w-14 h-14 rounded-xl bg-olive-900"></div>
+            <span class="text-xs text-olive-600">900</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gold -->
+      <div class="mb-8">
+        <h3 class="text-sm font-medium uppercase tracking-widest text-gold-600 mb-3">Gold / Brown — accent</h3>
+        <div class="flex flex-wrap gap-3">
+          <div class="flex flex-col items-center gap-1">
+            <div class="w-14 h-14 rounded-xl bg-gold-50 border border-cream-400"></div>
+            <span class="text-xs text-olive-600">50</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <div class="w-14 h-14 rounded-xl bg-gold-100 border border-cream-400"></div>
+            <span class="text-xs text-olive-600">100</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <div class="w-14 h-14 rounded-xl bg-gold-200"></div>
+            <span class="text-xs text-olive-600">200</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <div class="w-14 h-14 rounded-xl bg-gold-300 ring-2 ring-offset-2 ring-gold-400"></div>
+            <span class="text-xs text-olive-700 font-semibold">300 ★</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <div class="w-14 h-14 rounded-xl bg-gold-400"></div>
+            <span class="text-xs text-olive-600">400</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <div class="w-14 h-14 rounded-xl bg-gold-500"></div>
+            <span class="text-xs text-olive-600">500</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <div class="w-14 h-14 rounded-xl bg-gold-600"></div>
+            <span class="text-xs text-olive-600">600</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <div class="w-14 h-14 rounded-xl bg-gold-700"></div>
+            <span class="text-xs text-olive-600">700</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <div class="w-14 h-14 rounded-xl bg-gold-800"></div>
+            <span class="text-xs text-olive-600">800</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <div class="w-14 h-14 rounded-xl bg-gold-900"></div>
+            <span class="text-xs text-olive-600">900</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cream & Blush -->
+      <div class="flex flex-wrap gap-12">
+        <div>
+          <h3 class="text-sm font-medium uppercase tracking-widest text-olive-600 mb-3">Cream — háttér</h3>
+          <div class="flex gap-3">
+            <div class="flex flex-col items-center gap-1">
+              <div class="w-14 h-14 rounded-xl bg-cream-50 border border-cream-400"></div>
+              <span class="text-xs text-olive-600">50</span>
+            </div>
+            <div class="flex flex-col items-center gap-1">
+              <div class="w-14 h-14 rounded-xl bg-cream-100 border border-cream-400"></div>
+              <span class="text-xs text-olive-600">100</span>
+            </div>
+            <div class="flex flex-col items-center gap-1">
+              <div class="w-14 h-14 rounded-xl bg-cream-200"></div>
+              <span class="text-xs text-olive-600">200</span>
+            </div>
+            <div class="flex flex-col items-center gap-1">
+              <div class="w-14 h-14 rounded-xl bg-cream-300 ring-2 ring-offset-2 ring-cream-400"></div>
+              <span class="text-xs text-olive-700 font-semibold">300 ★</span>
+            </div>
+            <div class="flex flex-col items-center gap-1">
+              <div class="w-14 h-14 rounded-xl bg-cream-400"></div>
+              <span class="text-xs text-olive-600">400</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-sm font-medium uppercase tracking-widest text-blush-400 mb-3">Blush — soft accent</h3>
+          <div class="flex gap-3">
+            <div class="flex flex-col items-center gap-1">
+              <div class="w-14 h-14 rounded-xl bg-blush-100 border border-cream-400"></div>
+              <span class="text-xs text-olive-600">100</span>
+            </div>
+            <div class="flex flex-col items-center gap-1">
+              <div class="w-14 h-14 rounded-xl bg-blush-200"></div>
+              <span class="text-xs text-olive-600">200</span>
+            </div>
+            <div class="flex flex-col items-center gap-1">
+              <div class="w-14 h-14 rounded-xl bg-blush-300"></div>
+              <span class="text-xs text-olive-600">300</span>
+            </div>
+            <div class="flex flex-col items-center gap-1">
+              <div class="w-14 h-14 rounded-xl bg-blush-400"></div>
+              <span class="text-xs text-olive-600">400</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gradiens dobozok -->
+      <div class="mt-10">
+        <h3 class="text-sm font-medium uppercase tracking-widest text-olive-600 mb-4">Gradiensek — fémes arany</h3>
+        <div class="flex flex-wrap gap-5">
+
+          <div class="flex flex-col gap-2">
+            <div class="w-48 h-16 rounded-xl bg-gold-metal shadow-gold"></div>
+            <span class="text-xs text-olive-600">gold-metal <span class="text-olive-400">(135°)</span></span>
+            <span class="text-xs text-olive-400 font-mono">#e8c07a → #c4834f → #8b4e22</span>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <div class="w-48 h-16 rounded-xl bg-gold-metal-h shadow-gold"></div>
+            <span class="text-xs text-olive-600">gold-metal-h <span class="text-olive-400">(90°)</span></span>
+            <span class="text-xs text-olive-400 font-mono">#e8c07a → #c4834f → #a8622f</span>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <div class="w-48 h-16 rounded-xl bg-gold-btn shadow-gold"></div>
+            <span class="text-xs text-olive-600">gold-btn <span class="text-olive-400">(135°)</span></span>
+            <span class="text-xs text-olive-400 font-mono">#d9a67c → #a8622f</span>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <div class="w-48 h-16 rounded-xl shadow-gold flex items-center justify-center" style="background: linear-gradient(160deg, #f0d090 0%, #c4834f 45%, #7e4a1e 100%);">
+              <span class="text-gold-gradient-v font-display text-2xl font-bold">Bringo</span>
+            </div>
+            <span class="text-xs text-olive-600">Szöveg-clip előnézet</span>
+            <span class="text-xs text-olive-400 font-mono">#f0d090 → #c4834f → #7e4a1e</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Section: Typography ── -->
+    <section id="typography">
+      <h2 class="font-display text-3xl font-semibold text-olive-700 mb-8">Tipográfia</h2>
+
+      <div class="space-y-6 bg-cream-200 rounded-card p-8 shadow-soft">
+        <div>
+          <span class="text-xs uppercase tracking-widest text-olive-500 block mb-2">Display / H1 — Playfair Display 600</span>
+          <p class="font-display text-5xl font-semibold text-olive-800 leading-tight">Szépség, amit érzel</p>
+        </div>
+        <div>
+          <span class="text-xs uppercase tracking-widest text-olive-500 block mb-2">H2 — Playfair Display 400</span>
+          <p class="font-display text-3xl text-olive-700">Manikűr & Műköröm</p>
+        </div>
+        <div>
+          <span class="text-xs uppercase tracking-widest text-olive-500 block mb-2">H3 — Playfair Display italic</span>
+          <p class="font-display text-2xl italic text-gold-gradient">Gondoskodás, stílus, elegancia</p>
+        </div>
+        <div>
+          <span class="text-xs uppercase tracking-widest text-olive-500 block mb-2">Body — DM Sans 400</span>
+          <p class="font-body text-base text-olive-700 leading-relaxed max-w-xl">Professzionális körömápolás és műköröm készítés, ahol minden részlet számít. Foglalj időpontot és élvezd az egyedi bánásmódot!</p>
+        </div>
+        <div>
+          <span class="text-xs uppercase tracking-widest text-olive-500 block mb-2">Small / Caption — DM Sans 500</span>
+          <p class="font-body text-sm font-medium text-olive-600 uppercase tracking-widest">Időpont foglalás • Keszthely</p>
+        </div>
+        <div>
+          <span class="text-xs uppercase tracking-widest text-olive-500 block mb-2">Price — Playfair Display gold</span>
+          <p class="font-display text-4xl font-bold text-gold-gradient">4 500 Ft</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Section: Buttons ── -->
+    <section id="buttons">
+      <h2 class="font-display text-3xl font-semibold text-olive-700 mb-8">Gombok</h2>
+
+      <div class="bg-cream-200 rounded-card p-8 shadow-soft space-y-8">
+
+        <!-- Primary -->
+        <div>
+          <span class="text-xs uppercase tracking-widest text-olive-500 block mb-4">Primary — CTA</span>
+          <div class="flex flex-wrap gap-4 items-center">
+            <button class="bg-olive-200 hover:bg-olive-300 active:bg-olive-400 text-olive-800 font-body font-medium text-sm px-6 py-3 rounded-pill shadow-soft transition-all duration-200 hover:shadow-card">
+              Időpontot foglalok
+            </button>
+            <button class="bg-olive-200 hover:bg-olive-300 text-olive-800 font-body font-medium text-base px-8 py-4 rounded-pill shadow-soft transition-all duration-200 hover:shadow-card">
+              Időpontot foglalok — large
+            </button>
+            <button disabled class="bg-cream-400 text-olive-400 font-body font-medium text-sm px-6 py-3 rounded-pill cursor-not-allowed">
+              Disabled
+            </button>
+          </div>
+        </div>
+
+        <!-- Gold accent -->
+        <div>
+          <span class="text-xs uppercase tracking-widest text-olive-500 block mb-4">Gold Accent</span>
+          <div class="flex flex-wrap gap-4 items-center">
+            <button class="bg-gold-300 hover:bg-gold-400 text-olive-800 font-body font-semibold text-sm px-6 py-3 rounded-pill shadow-gold transition-all duration-200 hover:shadow-card">
+              Ajánlataim
+            </button>
+            <button class="border-2 border-gold-300 text-gold-600 hover:bg-gold-50 font-body font-medium text-sm px-6 py-3 rounded-pill transition-all duration-200">
+              Megnézem
+            </button>
+          </div>
+        </div>
+
+        <!-- Outline / Ghost -->
+        <div>
+          <span class="text-xs uppercase tracking-widest text-olive-500 block mb-4">Outline / Ghost</span>
+          <div class="flex flex-wrap gap-4 items-center">
+            <button class="border-2 border-olive-300 text-olive-700 hover:bg-olive-100 font-body font-medium text-sm px-6 py-3 rounded-pill transition-all duration-200">
+              Rólam
+            </button>
+            <button class="text-olive-700 hover:text-olive-900 font-body font-medium text-sm px-4 py-2 transition-all duration-200 underline underline-offset-4 decoration-gold-300">
+              Tovább olvasom →
+            </button>
+          </div>
+        </div>
+
+        <!-- Icon button -->
+        <div>
+          <span class="text-xs uppercase tracking-widest text-olive-500 block mb-4">Icon gomb</span>
+          <div class="flex flex-wrap gap-4 items-center">
+            <button class="bg-cream-300 hover:bg-cream-400 text-olive-700 w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200 shadow-soft">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0-6-6m6 6-6 6"/>
+              </svg>
+            </button>
+            <button class="bg-olive-200 hover:bg-olive-300 text-olive-800 flex items-center gap-2 px-5 py-3 rounded-pill font-body font-medium text-sm shadow-soft transition-all duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/>
+              </svg>
+              Időpontot foglalok
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Section: Cards ── -->
+    <section id="cards">
+      <h2 class="font-display text-3xl font-semibold text-olive-700 mb-8">Kártyák</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Service card -->
+        <div class="bg-cream-200 rounded-card p-6 shadow-soft hover:shadow-card transition-shadow duration-300 flex flex-col gap-4">
+          <div class="w-12 h-12 rounded-full bg-olive-100 flex items-center justify-center text-2xl">
+            💅
+          </div>
+          <div>
+            <h4 class="font-display text-lg font-semibold text-olive-800">Géllakk</h4>
+            <p class="text-sm text-olive-600 mt-1 leading-relaxed">Tartós, fényes fedés, 3–4 hetes kopásállósággal. Körömformázással együtt.</p>
+          </div>
+          <div class="mt-auto flex items-center justify-between">
+            <span class="font-display text-2xl font-bold text-gold-gradient">4 500 Ft</span>
+            <button class="text-olive-700 hover:text-olive-900 text-sm font-medium underline underline-offset-4 decoration-gold-300 transition-colors">Foglalok →</button>
+          </div>
+        </div>
+
+        <!-- Service card — featured -->
+        <div class="bg-olive-200 rounded-card p-6 shadow-card flex flex-col gap-4 relative overflow-hidden">
+          <div class="absolute top-4 right-4 bg-gold-btn text-white text-xs font-semibold px-3 py-1 rounded-pill shadow-gold">Népszerű</div>
+          <div class="w-12 h-12 rounded-full bg-olive-100 flex items-center justify-center text-2xl">
+            ✨
+          </div>
+          <div>
+            <h4 class="font-display text-lg font-semibold text-olive-800">Műköröm — Zselé</h4>
+            <p class="text-sm text-olive-600 mt-1 leading-relaxed">Hosszabbítás vagy erősítés, teljes kidolgozással, mintával.</p>
+          </div>
+          <div class="mt-auto flex items-center justify-between">
+            <span class="font-display text-2xl font-bold text-gold-gradient">8 500 Ft</span>
+            <button class="bg-gold-btn text-white text-sm font-semibold px-4 py-2 rounded-pill shadow-gold hover:opacity-90 transition-opacity">Foglalok →</button>
+          </div>
+        </div>
+
+        <!-- Service card -->
+        <div class="bg-cream-200 rounded-card p-6 shadow-soft hover:shadow-card transition-shadow duration-300 flex flex-col gap-4">
+          <div class="w-12 h-12 rounded-full bg-blush-100 flex items-center justify-center text-2xl">
+            🌸
+          </div>
+          <div>
+            <h4 class="font-display text-lg font-semibold text-olive-800">Francia manikűr</h4>
+            <p class="text-sm text-olive-600 mt-1 leading-relaxed">Klasszikus fehér szélű technika, természetes vagy hosszított körmön.</p>
+          </div>
+          <div class="mt-auto flex items-center justify-between">
+            <span class="font-display text-2xl font-bold text-gold-gradient">5 500 Ft</span>
+            <button class="text-olive-700 hover:text-olive-900 text-sm font-medium underline underline-offset-4 decoration-gold-300 transition-colors">Foglalok →</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Section: Components ── -->
+    <section id="components">
+      <h2 class="font-display text-3xl font-semibold text-olive-700 mb-8">Komponensek</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- Badge / tag -->
+        <div class="bg-cream-200 rounded-card p-6 shadow-soft">
+          <span class="text-xs uppercase tracking-widest text-olive-500 block mb-4">Badge / Tag</span>
+          <div class="flex flex-wrap gap-3">
+            <span class="bg-olive-200 text-olive-700 text-xs font-medium px-3 py-1 rounded-pill">Manikűr</span>
+            <span class="bg-gold-200 text-gold-700 text-xs font-medium px-3 py-1 rounded-pill">Műköröm</span>
+            <span class="bg-blush-100 text-blush-400 text-xs font-medium px-3 py-1 rounded-pill">Francia</span>
+            <span class="bg-cream-300 text-olive-600 text-xs font-medium px-3 py-1 rounded-pill">Zselé</span>
+            <span class="border border-olive-300 text-olive-600 text-xs font-medium px-3 py-1 rounded-pill">Akril</span>
+          </div>
+        </div>
+
+        <!-- Divider / ornament -->
+        <div class="bg-cream-200 rounded-card p-6 shadow-soft">
+          <span class="text-xs uppercase tracking-widest text-olive-500 block mb-4">Elválasztó / ornament</span>
+          <div class="flex items-center gap-4 my-4">
+            <div class="flex-1 h-px bg-cream-400"></div>
+            <span class="text-gold-gradient text-lg font-bold">✦</span>
+            <div class="flex-1 h-px bg-cream-400"></div>
+          </div>
+          <div class="flex items-center gap-3 my-4">
+            <div class="flex-1 h-px bg-olive-200"></div>
+            <span class="text-olive-400 text-sm font-display italic">Szolgáltatások</span>
+            <div class="flex-1 h-px bg-olive-200"></div>
+          </div>
+        </div>
+
+        <!-- Testimonial -->
+        <div class="bg-olive-100 rounded-card p-6 shadow-soft">
+          <span class="text-xs uppercase tracking-widest text-olive-500 block mb-4">Vélemény kártya</span>
+          <div class="flex gap-1 mb-3">
+            <span class="text-gold-400 text-sm">★★★★★</span>
+          </div>
+          <p class="font-body text-olive-700 text-sm leading-relaxed italic">"Csodálatos munkát végzett, a körmeim sosem néztek ki ilyen szépen. Mindenképpen visszajövök!"</p>
+          <div class="flex items-center gap-3 mt-4">
+            <div class="w-8 h-8 rounded-full bg-olive-200 flex items-center justify-center text-olive-700 text-xs font-semibold">KÉ</div>
+            <div>
+              <p class="text-xs font-semibold text-olive-700">Kovács Éva</p>
+              <p class="text-xs text-olive-500">Google vélemény</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Input -->
+        <div class="bg-cream-200 rounded-card p-6 shadow-soft">
+          <span class="text-xs uppercase tracking-widest text-olive-500 block mb-4">Form elemek</span>
+          <div class="space-y-3">
+            <div>
+              <label class="block text-xs font-medium text-olive-600 mb-1 uppercase tracking-wide">Neved</label>
+              <input type="text" placeholder="pl. Kovács Éva" class="w-full bg-cream-300 border border-cream-400 focus:border-olive-300 focus:ring-2 focus:ring-olive-200 rounded-xl px-4 py-2.5 text-sm text-olive-800 placeholder-olive-400 outline-none transition-all" />
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-olive-600 mb-1 uppercase tracking-wide">Telefonszám</label>
+              <input type="tel" placeholder="+36 30 123 4567" class="w-full bg-cream-300 border border-cream-400 focus:border-olive-300 focus:ring-2 focus:ring-olive-200 rounded-xl px-4 py-2.5 text-sm text-olive-800 placeholder-olive-400 outline-none transition-all" />
+            </div>
+            <button class="w-full bg-olive-200 hover:bg-olive-300 text-olive-800 font-medium text-sm py-3 rounded-pill transition-all shadow-soft mt-1">
+              Küldés
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Section: Hero Preview ── -->
+    <section id="preview">
+      <h2 class="font-display text-3xl font-semibold text-olive-700 mb-8">Hero előnézet</h2>
+
+      <div class="rounded-card overflow-hidden shadow-card bg-cream-300 relative">
+
+        <!-- Decorative blobs -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-olive-200 rounded-full -translate-y-1/2 translate-x-1/2 opacity-50"></div>
+        <div class="absolute bottom-0 left-0 w-48 h-48 bg-gold-200 rounded-full translate-y-1/2 -translate-x-1/2 opacity-40"></div>
+
+        <div class="relative px-8 py-16 md:px-16 md:py-24 max-w-2xl">
+          <span class="inline-block bg-olive-200 text-olive-700 text-xs font-medium px-4 py-1.5 rounded-pill mb-6 uppercase tracking-widest">
+            ✦ Keszthely · Időpontot vár
+          </span>
+          <h1 class="font-display text-5xl md:text-6xl font-semibold text-olive-800 leading-tight mb-6">
+            Szépség,<br/>
+            <span class="text-gold-gradient-v italic">amit érzel.</span>
+          </h1>
+          <p class="font-body text-base text-olive-700 leading-relaxed mb-8 max-w-md">
+            Professzionális manikűr és műköröm-szolgáltatások, ahol minden részlet számít. Foglalj időpontot még ma!
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <button class="bg-olive-200 hover:bg-olive-300 text-olive-800 font-medium px-8 py-4 rounded-pill shadow-soft hover:shadow-card transition-all duration-200 flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/>
+              </svg>
+              Időpontot foglalok
+            </button>
+            <button class="border-2 border-gold-300 text-gold-600 hover:bg-gold-100 font-medium px-8 py-4 rounded-pill transition-all duration-200">
+              Szolgáltatások
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="mt-20 border-t border-cream-400 bg-cream-400 px-8 py-10 text-center">
+    <p class="font-display text-lg text-olive-700 italic">Bringo Styleguide</p>
+    <p class="text-xs text-olive-500 mt-1">Design tokenek és komponensek — iterálható alap</p>
+  </footer>
+
+</body>
+</html>
