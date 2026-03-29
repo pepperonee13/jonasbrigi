@@ -88,6 +88,10 @@ tailwind.config = {
 (function () {
   const style = document.createElement('style');
   style.textContent = `
+    html {
+      scroll-behavior: smooth;
+    }
+
     @font-face {
       font-family: 'CalendaryHands';
       src: url('fonts/CalendaryHands.ttf') format('truetype');
@@ -150,6 +154,14 @@ tailwind.config = {
     }
     .card-gold-border > div {
       border-radius: calc(1.25rem - 1px);
+    }
+
+    .service-card {
+      transition: transform 0.22s ease-out, box-shadow 0.22s ease-out;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 32px 0 rgba(168, 98, 47, 0.16);
     }
   `;
   document.head.appendChild(style);
