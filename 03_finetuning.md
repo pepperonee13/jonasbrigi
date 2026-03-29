@@ -1,0 +1,3 @@
+- (a Bitang Burger mellett) legyen új sorban és harmadlagos színnel és legyen "a Bitang Burger mellett az Esthair & Fodrászatban"
+- a facebook link legyen https://www.facebook.com/brigitta.meszaros.1447
+- telefonszám: +36-20/560-4807 

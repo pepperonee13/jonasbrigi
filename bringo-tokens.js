@@ -61,6 +61,7 @@ tailwind.config = {
       spacing: {
         'hero-top': 'clamp(1rem, 4vw, 3rem)',
         'section-gap': 'clamp(1.5rem, 3vw, 2rem)',
+        'section-pad': 'clamp(2.5rem, 5vw, 4rem)',
       },
 
       borderRadius: {
@@ -119,8 +120,6 @@ tailwind.config = {
       margin-right: auto;
       padding-left: 2rem;
       padding-right: 2rem;
-      padding-top: clamp(1.5rem, 3vw, 2rem);
-      padding-bottom: clamp(1.5rem, 3vw, 2rem);
     }
     @media (min-width: 768px) {
       .divider {
