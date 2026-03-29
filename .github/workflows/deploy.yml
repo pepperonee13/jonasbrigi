@@ -26,6 +26,7 @@ jobs:
       - name: Prepare public files
         run: |
           mkdir _site
+          touch _site/.nojekyll
           cp landing.html _site/index.html
           cp bringo-tokens.js _site/
           cp -r fonts _site/fonts
