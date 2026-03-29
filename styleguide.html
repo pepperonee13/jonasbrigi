@@ -59,8 +59,9 @@
           },
 
           fontFamily: {
-            display: ['"Playfair Display"', 'Georgia', 'serif'],
-            body:    ['"DM Sans"', 'system-ui', 'sans-serif'],
+            display:    ['"Playfair Display"', 'Georgia', 'serif'],
+            body:       ['"DM Sans"', 'system-ui', 'sans-serif'],
+            signature:  ['"CalendaryHands"', 'cursive'],
           },
 
           borderRadius: {
@@ -88,6 +89,13 @@
   </script>
 
   <style>
+    @font-face {
+      font-family: 'CalendaryHands';
+      src: url('fonts/CalendaryHands.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
     /* Fémes szöveg gradiens segédosztály */
     .text-gold-gradient {
       background: linear-gradient(90deg, #e8c07a 0%, #c4834f 50%, #8b4e22 100%);
@@ -315,6 +323,10 @@
       <h2 class="font-display text-3xl font-semibold text-olive-700 mb-8">Tipográfia</h2>
 
       <div class="space-y-6 bg-cream-200 rounded-card p-8 shadow-soft">
+        <div>
+          <span class="text-xs uppercase tracking-widest text-olive-500 block mb-2">Signature — WhisperingSignature</span>
+          <p class="font-signature text-gold-gradient" style="font-size: 4rem; line-height: 1.2;">Kéz- és Lábápolás, műkörömépítés</p>
+        </div>
         <div>
           <span class="text-xs uppercase tracking-widest text-olive-500 block mb-2">Display / H1 — Playfair Display 600</span>
           <p class="font-display text-5xl font-semibold text-olive-800 leading-tight">Szépség, amit érzel</p>
@@ -549,6 +561,7 @@
           <span class="inline-block bg-olive-200 text-olive-700 text-xs font-medium px-4 py-1.5 rounded-pill mb-6 uppercase tracking-widest">
             ✦ Keszthely · Időpontot vár
           </span>
+          <p class="font-signature text-gold-gradient-v mb-2" style="font-size: 3.5rem; line-height: 1.15;">Kéz- és Lábápolás, műkörömépítés</p>
           <h1 class="font-display text-5xl md:text-6xl font-semibold text-olive-800 leading-tight mb-6">
             Szépség,<br/>
             <span class="text-gold-gradient-v italic">amit érzel.</span>
