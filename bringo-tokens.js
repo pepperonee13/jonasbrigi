@@ -110,6 +110,32 @@ tailwind.config = {
       z-index: 1;
     }
 
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      max-width: 64rem;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      padding-top: clamp(1.5rem, 3vw, 2rem);
+      padding-bottom: clamp(1.5rem, 3vw, 2rem);
+    }
+    @media (min-width: 768px) {
+      .divider {
+        padding-left: 4rem;
+        padding-right: 4rem;
+      }
+    }
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background-color: #e5c89a;
+    }
+
     .text-gold-gradient-v {
       background: linear-gradient(160deg, #f0d090 0%, #c4834f 45%, #7e4a1e 100%);
       -webkit-background-clip: text;
