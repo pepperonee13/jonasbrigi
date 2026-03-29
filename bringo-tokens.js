@@ -141,6 +141,16 @@ tailwind.config = {
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+
+    .card-gold-border {
+      padding: 1px;
+      border-radius: 1.25rem;
+      background: linear-gradient(135deg, #e8c07a 0%, #c4834f 40%, #8b4e22 100%);
+      box-shadow: 0 4px 20px 0 rgba(168,98,47,0.30);
+    }
+    .card-gold-border > div {
+      border-radius: calc(1.25rem - 1px);
+    }
   `;
   document.head.appendChild(style);
 })();
