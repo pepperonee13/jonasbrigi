@@ -38,4 +38,4 @@ Everything else (docs, plans, styleguide, CLAUDE.md) is **not published**.
 - **`01_landingpage.md`** — original project brief (services, pricing, style direction).
 - **`02_content.md`** — content details (copy, contact info, location).
 - **`03_finetuning.md`** — design fine-tuning notes.
-- **`plans/001_seo.md`** — prioritised SEO improvement checklist.
+- **`plans/*`** — plans
