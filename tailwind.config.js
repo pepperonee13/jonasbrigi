@@ -1,0 +1,86 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    './landing.html',
+    './styleguide.html',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        olive: {
+          50:  '#f5f7f0',
+          100: '#e8edda',
+          200: '#d2dbb8',  /* ★ primary */
+          300: '#b5c48e',
+          400: '#97ac66',
+          500: '#7a9248',
+          600: '#607538',
+          700: '#4a5a2b',
+          800: '#364220',
+          900: '#252e16',
+        },
+        gold: {
+          50:  '#fdf6f0',
+          100: '#f7e6d8',
+          200: '#edcaad',
+          300: '#d9a67c',  /* ★ accent — réz/bronz */
+          400: '#c4834f',
+          500: '#a8622f',  /* fémes bronz */
+          600: '#8b4e22',
+          700: '#6e3b18',
+          800: '#4f2a10',
+          900: '#321a09',
+        },
+        cream: {
+          50:  '#fefcf8',
+          100: '#fdf7ee',
+          200: '#f8ecda',
+          300: '#f0dbbf',  /* ★ háttér */
+          400: '#e5c89a',
+        },
+        blush: {
+          100: '#fce8e8',
+          200: '#f7cdcd',
+          300: '#edaaaa',
+          400: '#df8080',
+        },
+      },
+
+      fontFamily: {
+        display:   ['"Playfair Display"', 'Georgia', 'serif'],
+        body:      ['"DM Sans"', 'system-ui', 'sans-serif'],
+        signature: ['"CalendaryHands"', 'cursive'],
+      },
+
+      fontSize: {
+        'signature':      ['clamp(2.8rem, 6vw, 5rem)', { lineHeight: '1.1' }],
+        'hero':           ['clamp(2.5rem, 5vw, 4rem)',  { lineHeight: '1.15' }],
+        'signature-logo': ['2rem',                      { lineHeight: '1.2' }],
+      },
+
+      spacing: {
+        'hero-top': 'clamp(1rem, 4vw, 3rem)',
+        'section-gap': 'clamp(1.5rem, 3vw, 2rem)',
+        'section-pad': 'clamp(2.5rem, 5vw, 4rem)',
+      },
+
+      borderRadius: {
+        card: '1.25rem',
+        pill: '9999px',
+      },
+
+      boxShadow: {
+        soft: '0 4px 24px 0 rgba(96,117,56,0.08)',
+        card: '0 8px 40px 0 rgba(96,117,56,0.12)',
+        gold: '0 4px 20px 0 rgba(168,98,47,0.30)',
+      },
+
+      backgroundImage: {
+        'gold-metal':   'linear-gradient(135deg, #e8c07a 0%, #c4834f 40%, #8b4e22 100%)',
+        'gold-metal-h': 'linear-gradient(90deg,  #e8c07a 0%, #c4834f 50%, #a8622f 100%)',
+        'gold-btn':     'linear-gradient(135deg, #d9a67c 0%, #a8622f 100%)',
+      },
+    },
+  },
+  plugins: [],
+};

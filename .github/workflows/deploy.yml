@@ -28,7 +28,7 @@ jobs:
           mkdir _site
           touch _site/.nojekyll
           cp landing.html _site/index.html
-          cp bringo-tokens.js _site/
+          cp bringo-styles.css _site/
           cp -r fonts _site/fonts
           cp -r assets _site/assets
           cp sitemap.xml _site/
