@@ -24,6 +24,9 @@
     },
     "telephone": "+36205604807",
     "url": "https://jonasbrigi.hu/",
+    "priceRange": "4500–13000 Ft",
+    "currenciesAccepted": "HUF",
+    "paymentAccepted": "Cash",
     "sameAs": ["https://www.facebook.com/brigitta.meszaros.1447"]
   }
   </script>
@@ -32,6 +35,58 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+  <!-- Consent Mode v2 — analytics letiltva amíg a látogató nem dönt -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      wait_for_update: 500
+    });
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z44LEQZ0BH"></script>
+  <script>
+    gtag('js', new Date());
+    gtag('config', 'G-Z44LEQZ0BH');
+  </script>
+  <!-- Cookie consent library -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css">
+  <style>
+    #cc-main {
+      --cc-font-family: 'DM Sans', system-ui, sans-serif;
+      --cc-modal-border-radius: 1rem;
+      --cc-btn-border-radius: 9999px;
+
+      --cc-bg:               #f8ecda;  /* cream-200 */
+      --cc-primary-color:    #364220;  /* olive-800 */
+      --cc-secondary-color:  #607538;  /* olive-600 */
+      --cc-link-color:       #a8622f;  /* gold-500 */
+
+      --cc-btn-primary-bg:           #a8622f;  /* gold-500 */
+      --cc-btn-primary-color:        #fdf7ee;
+      --cc-btn-primary-border-color: transparent;
+      --cc-btn-primary-hover-bg:     #8b4e22;  /* gold-600 */
+      --cc-btn-primary-hover-color:  #fdf7ee;
+
+      --cc-btn-secondary-bg:           transparent;
+      --cc-btn-secondary-color:        #607538;  /* olive-600 */
+      --cc-btn-secondary-border-color: #d2dbb8;  /* olive-200 */
+      --cc-btn-secondary-hover-bg:     #f0dbbf;  /* cream-300 */
+      --cc-btn-secondary-hover-color:  #364220;
+
+      --cc-separator-border-color: #e5c89a;  /* cream-400 */
+      --cc-toggle-on-bg:           #a8622f;
+      --cc-toggle-off-bg:          #d2dbb8;
+      --cc-toggle-on-knob-bg:      #fdf7ee;
+      --cc-toggle-off-knob-bg:     #fdf7ee;
+
+      --cc-cookie-category-block-bg:       #f0dbbf;
+      --cc-cookie-category-block-bg-hover: #e8dccc;
+      --cc-cookie-category-block-border:   #e5c89a;
+      --cc-overlay-bg: rgba(54, 66, 32, 0.35);
+    }
+  </style>
 </head>
 <body class="bg-cream-300 font-body text-olive-800">
 
@@ -61,9 +116,9 @@
   <!-- ── 1. Hero / Cím ── -->
   <section class="relative flex items-start overflow-hidden">
     <div class="relative w-full max-w-5xl mx-auto px-8 md:px-16 pt-hero-top pb-section-pad text-center">
-      <p class="font-signature text-signature text-gold-gradient-v">
+      <h1 class="font-signature text-signature text-gold-gradient-v">
         Kéz- és Lábápolás, műkörömépítés
-      </p>
+      </h1>
     </div>
   </section>
 
@@ -343,6 +398,79 @@
     </div>
     <p class="text-xs text-olive-400 mt-2">© 2026 Bringo — Minden jog fenntartva</p>
   </footer>
+
+  <!-- Cookie consent init -->
+  <script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.umd.js"></script>
+  <script>
+    CookieConsent.run({
+      guiOptions: {
+        consentModal: {
+          layout: 'bar inline',
+          position: 'bottom center',
+          equalWeightButtons: false,
+          flipButtons: false
+        },
+        preferencesModal: {
+          layout: 'box',
+          position: 'right',
+          equalWeightButtons: true,
+          flipButtons: false
+        }
+      },
+      categories: {
+        necessary: {
+          enabled: true,
+          readOnly: true
+        },
+        analytics: {
+          autoClear: {
+            cookies: [{ name: /^_ga/ }]
+          },
+          onAccept: function() {
+            gtag('consent', 'update', { analytics_storage: 'granted' });
+          },
+          onReject: function() {
+            gtag('consent', 'update', { analytics_storage: 'denied' });
+          }
+        }
+      },
+      language: {
+        default: 'hu',
+        translations: {
+          hu: {
+            consentModal: {
+              title: '',
+              description: 'Google Analytics sütit használunk a látogatottság névtelen méréséhez.',
+              acceptAllBtn: 'Elfogadom',
+              acceptNecessaryBtn: 'Nem kell',
+              showPreferencesBtn: 'Részletek',
+              footer: ''
+            },
+            preferencesModal: {
+              title: 'Süti beállítások',
+              acceptAllBtn: 'Mindent elfogadok',
+              acceptNecessaryBtn: 'Csak szükséges',
+              savePreferencesBtn: 'Mentés',
+              closeIconLabel: 'Bezárás',
+              serviceCounterLabel: 'Szolgáltatás|Szolgáltatások',
+              sections: [
+                {
+                  title: 'Szükséges sütik',
+                  description: 'Az oldal működéséhez elengedhetetlenek, nem kapcsolhatók ki.',
+                  linkedCategory: 'necessary'
+                },
+                {
+                  title: 'Analitikai sütik',
+                  description: 'Google Analytics (GA4) — névtelen látogatottsági adatok az oldal fejlesztéséhez. Személyes adat nem kerül tárolásra.',
+                  linkedCategory: 'analytics'
+                }
+              ]
+            }
+          }
+        }
+      }
+    });
+  </script>
 
   <script>
     const bar = document.getElementById('brand-bar');
