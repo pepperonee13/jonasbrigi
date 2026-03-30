@@ -31,6 +31,8 @@ jobs:
           cp bringo-tokens.js _site/
           cp -r fonts _site/fonts
           cp -r assets _site/assets
+          cp sitemap.xml _site/
+          cp robots.txt _site/
 
       - uses: actions/configure-pages@v5
 
