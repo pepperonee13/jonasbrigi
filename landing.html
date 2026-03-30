@@ -402,95 +402,96 @@
     <p class="text-xs text-olive-400 mt-2">© 2026 Bringo — Minden jog fenntartva</p>
   </footer>
 
-  <!-- Cookie consent init -->
+  <!-- Cookie consent init + analytics -->
   <script src="assets/cookieconsent/cookieconsent.umd.js"></script>
   <script>
-    CookieConsent.run({
-      guiOptions: {
-        consentModal: {
-          layout: 'bar inline',
-          position: 'bottom center',
-          equalWeightButtons: false,
-          flipButtons: false
-        },
-        preferencesModal: {
-          layout: 'box',
-          position: 'right',
-          equalWeightButtons: true,
-          flipButtons: false
-        }
-      },
-      categories: {
-        necessary: {
-          enabled: true,
-          readOnly: true
-        },
-        analytics: {
-          autoClear: {
-            cookies: [{ name: /^_ga/ }]
+    (function () {
+      function grantAnalytics() {
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+        gtag('event', 'page_view', {
+          page_title: document.title,
+          page_location: window.location.href,
+          page_path: window.location.pathname
+        });
+      }
+
+      function revokeAnalytics() {
+        gtag('consent', 'update', { analytics_storage: 'denied' });
+      }
+
+      CookieConsent.run({
+        guiOptions: {
+          consentModal: {
+            layout: 'bar inline',
+            position: 'bottom center',
+            equalWeightButtons: false,
+            flipButtons: false
           },
-          onAccept: function() {
-            gtag('consent', 'update', { analytics_storage: 'granted' });
-            gtag('event', 'page_view', {
-              page_title: document.title,
-              page_location: window.location.href,
-              page_path: window.location.pathname
-            });
-          },
-          onReject: function() {
-            gtag('consent', 'update', { analytics_storage: 'denied' });
+          preferencesModal: {
+            layout: 'box',
+            position: 'right',
+            equalWeightButtons: true,
+            flipButtons: false
           }
-        }
-      },
-      language: {
-        default: 'hu',
-        translations: {
-          hu: {
-            consentModal: {
-              title: '',
-              description: 'Google Analytics sütit használunk a látogatottság névtelen méréséhez.',
-              acceptAllBtn: 'Elfogadom',
-              acceptNecessaryBtn: 'Nem kell',
-              showPreferencesBtn: 'Részletek',
-              footer: ''
-            },
-            preferencesModal: {
-              title: 'Süti beállítások',
-              acceptAllBtn: 'Mindent elfogadok',
-              acceptNecessaryBtn: 'Csak szükséges',
-              savePreferencesBtn: 'Mentés',
-              closeIconLabel: 'Bezárás',
-              serviceCounterLabel: 'Szolgáltatás|Szolgáltatások',
-              sections: [
-                {
-                  title: 'Szükséges sütik',
-                  description: 'Az oldal működéséhez elengedhetetlenek, nem kapcsolhatók ki.',
-                  linkedCategory: 'necessary'
-                },
-                {
-                  title: 'Analitikai sütik',
-                  description: 'Google Analytics (GA4) — névtelen látogatottsági adatok az oldal fejlesztéséhez. Személyes adat nem kerül tárolásra.',
-                  linkedCategory: 'analytics'
-                }
-              ]
+        },
+        categories: {
+          necessary: {
+            enabled: true,
+            readOnly: true
+          },
+          analytics: {
+            autoClear: { cookies: [{ name: /^_ga/ }] },
+            onAccept: grantAnalytics,
+            onReject: revokeAnalytics
+          }
+        },
+        language: {
+          default: 'hu',
+          translations: {
+            hu: {
+              consentModal: {
+                title: '',
+                description: 'Google Analytics sütit használunk a látogatottság névtelen méréséhez.',
+                acceptAllBtn: 'Elfogadom',
+                acceptNecessaryBtn: 'Nem kell',
+                showPreferencesBtn: 'Részletek',
+                footer: ''
+              },
+              preferencesModal: {
+                title: 'Süti beállítások',
+                acceptAllBtn: 'Mindent elfogadok',
+                acceptNecessaryBtn: 'Csak szükséges',
+                savePreferencesBtn: 'Mentés',
+                closeIconLabel: 'Bezárás',
+                serviceCounterLabel: 'Szolgáltatás|Szolgáltatások',
+                sections: [
+                  {
+                    title: 'Szükséges sütik',
+                    description: 'Az oldal működéséhez elengedhetetlenek, nem kapcsolhatók ki.',
+                    linkedCategory: 'necessary'
+                  },
+                  {
+                    title: 'Analitikai sütik',
+                    description: 'Google Analytics (GA4) — névtelen látogatottsági adatok az oldal fejlesztéséhez. Személyes adat nem kerül tárolásra.',
+                    linkedCategory: 'analytics'
+                  }
+                ]
+              }
             }
           }
         }
-      }
-    });
-  </script>
+      });
 
-  <script>
-    (function () {
-      function trackGa4Event(name, params) {
-        if (typeof window.gtag !== 'function') return;
-        window.gtag('event', name, params);
+      // Return visits: onAccept won't re-fire, so check saved consent
+      if (CookieConsent.acceptedCategory('analytics')) {
+        grantAnalytics();
       }
 
-      document.addEventListener('click', function (event) {
-        var target = event.target.closest('[data-ga4-event]');
-        if (!target) return;
-        trackGa4Event(target.dataset.ga4Event, {
+      // CTA event tracking — only fires when analytics consent is active
+      document.addEventListener('click', function (e) {
+        var target = e.target.closest('[data-ga4-event]');
+        if (!target || !CookieConsent.acceptedCategory('analytics')) return;
+        gtag('event', target.dataset.ga4Event, {
           event_label: target.dataset.ga4Label || '',
           link_url: target.getAttribute('href') || ''
         });
