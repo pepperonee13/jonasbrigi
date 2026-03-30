@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: 'CalendaryHands';
+  src: url('fonts/CalendaryHands.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.text-gold-gradient {
+  background: linear-gradient(90deg, #e8c07a 0%, #c4834f 50%, #8b4e22 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.blend-multiply {
+  mix-blend-mode: multiply;
+}
+
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+@media (min-width: 768px) {
+  .divider {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: #e5c89a;
+}
+
+.text-gold-gradient-v {
+  background: linear-gradient(160deg, #f0d090 0%, #c4834f 45%, #7e4a1e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card-gold-border {
+  padding: 1px;
+  border-radius: 1.25rem;
+  background: linear-gradient(135deg, #e8c07a 0%, #c4834f 40%, #8b4e22 100%);
+  box-shadow: 0 4px 20px 0 rgba(168,98,47,0.30);
+}
+.card-gold-border > div {
+  border-radius: calc(1.25rem - 1px);
+}
+
+.service-card {
+  transition: transform 0.22s ease-out, box-shadow 0.22s ease-out;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 32px 0 rgba(168, 98, 47, 0.16);
+}
